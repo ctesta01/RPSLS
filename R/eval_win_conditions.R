@@ -1,6 +1,6 @@
 
 #' Evaluate Win Conditions
-eval_win_conditions <- function(player1, player2, quiet = FALSE, names) {
+eval_win_conditions <- function(player1, player2, quiet = FALSE, names = NULL) {
 
   if (! (missing(names) | (is.character(names) & length(names) == 2))) {
     stop("The names argument must be either missing or a length 2 character vector.")

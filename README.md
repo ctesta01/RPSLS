@@ -17,7 +17,9 @@ The *Rock, Paper, Scissors, Lizard, Spock* game is a variant of *Rock,
 Paper, Scissors* game invented by Sam Kass and Karen Bryla with Spock
 signified using the Star Trek Vulcan salute, and lizard sometimes shown
 in diagrams by forming the hand into a sock-puppet-like mouth [^1]. The
-following diagram is from Wikimedia[^2].
+following diagram from Wikimedia[^2] explains how each game is resolved.
+See the output of `explain_the_game()` below for the logic behind the
+diagram.
 
 ![A resolution diagram of the game *Rock, Paper, Scissors, Lizard,
 Spock*](https://upload.wikimedia.org/wikipedia/commons/a/ad/Pierre_ciseaux_feuille_l%C3%A9zard_spock_aligned.svg)
@@ -47,15 +49,15 @@ explain_the_game()
 sample_rpsls()
 ```
 
-    ## You got rock 🪨
+    ## You got spock 🖖
 
 ``` r
 sample_rpsls(2)
 ```
 
     ## Your samples:
-    ## Sample 1: lizard 🦎
-    ## Sample 2: rock 🪨
+    ## Sample 1: paper 📝
+    ## Sample 2: paper 📝
 
 # Playing a Game
 
@@ -67,9 +69,16 @@ player 2 wins, or they tie.
 sample_rpsls_pair()
 ```
 
-    ## Player 1 chooses: lizard 🦎
+    ## Player 1 chooses: spock 🖖
     ## Player 2 chooses: rock 🪨
-    ## Player 2 wins!
+    ## Player 1 wins!
+
+## Tournaments
+
+Currently under development!
+
+![Hopefully soon you will be able to use this package to run tournaments
+of RPSLS](images/shiny_app.png)
 
 ## Citations
 
