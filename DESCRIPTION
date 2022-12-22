@@ -1,0 +1,14 @@
+Package: RPSLS
+Type: Package
+Title: Rock Paper Scissors Lizard Spock
+Version: 0.1.0
+Author: Christian Testa
+Maintainer: Christian Testa <ctesta000@protonmail.com>
+Description: Facilitates playing the game Rock-Paper-Scissors-Lizard-Spock!
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends:
+  dplyr,
+  shiny,
+  rhandsontable
