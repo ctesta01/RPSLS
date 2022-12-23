@@ -5,11 +5,11 @@ rpsls_emojis <- c('🪨', '📝', '✂️', '🦎', '🖖')
 
 #' A Named Vector for Rock, Paper, Scissors, Lizard, Spock Emojis
 rpsls_names <- c(
-  '🪨' = 'rock',
-  '📝' = 'paper',
-  '✂️' = 'scissors',
-  '🦎' = 'lizard',
-  '🖖' = 'spock'
+  '🪨' = 'Rock',
+  '📝' = 'Paper',
+  '✂️' = 'Scissors',
+  '🦎' = 'Lizard',
+  '🖖' = 'Spock'
 )
 
 
