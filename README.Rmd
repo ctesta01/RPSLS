@@ -51,11 +51,11 @@ sample_rpsls_pair()
 
 The app can be run after installing the package, loading it, and calling `RPSLS::app()`.
 
-![Use the builtin app to run tournaments of RPSLS](images/animation.gif)
-
 Watch the explanation video on YouTube:
 
 [![Explanation on YouTube](images/youtube.png)](https://www.youtube.com/watch?v=fR90EA7FTV8)
+
+![Use the builtin app to run tournaments of RPSLS](images/animation.gif)
 
 ## Citations
 
