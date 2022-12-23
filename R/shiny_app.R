@@ -89,29 +89,27 @@ server <- function(input, output, session) {
     # these are our players
     current_players <- values$games[[paste0('game', values$current_game)]]$players
 
-    # determine how they play
-    plays <- sample_rpsls(n = length(current_players), quiet = TRUE)
-
     # setup messages structure
-    play_event_messages <- list()
+    play_event_messages <- c()
 
     # setup a list of winners
     winners <- c()
 
     # determine winners
-    for (i in 1:floor(length(plays)/2)) {
+    for (i in 1:floor(length(current_players)/2)) {
 
       # record the gameplay messages
       winner_msg <- 'tie'
+
+      # get the player names for the current pair
+      player_names <- player_namer()[current_players[c(2*i-1, 2*i)]]
+
       while(winner_msg == 'tie') { # until a non-tie is reached, repeat each game
 
-        # get the player names for the current pair
-        player_names <- player_namer()[current_players[c(2*i-1, 2*i)]]
-
-        play_event_messages[[length(play_event_messages)+1]] <- capture.output({
+        play_event_messages <- c(play_event_messages, capture.output({
           winner_msg <-
-            eval_win_conditions(plays[2 * i - 1], plays[2 * i],
-                                names = player_names) })
+            sample_rpsls_pair(names = player_names)
+        }))
       }
       # store the winners
       winners[length(winners) + 1] <-
@@ -153,8 +151,7 @@ server <- function(input, output, session) {
       # increment the current game counter
       values$current_game <- values$current_game + 1
     }
-  }
-  )
+  })
 
   # create an output for the gameplay log
   gameplay_text <- reactive({
@@ -162,7 +159,7 @@ server <- function(input, output, session) {
     # setup messages object
     messages <- c()
 
-    # round 1 matchup
+    # create printout for round 1 matchup
     messages[1] <- r"(<h2>Round 1 Matchup&#58;</h2>)"
     for (i in 1:length(values$games$game1$pairs)) {
       pair <- values$games$game1$pairs[[i]]
@@ -172,14 +169,13 @@ server <- function(input, output, session) {
         messages[[length(messages)+1]] <- paste0(player_namer()[pair[1]], " automatically advances")
       }
     }
+    # add a line break after round 1 matchups
     messages[length(messages)+1] <- '<br>'
 
-    print(values$games$game1$play_event_messages)
+    # if round1 has been played, print the play event messages
     if (! is.null(values$games$game1$play_event_messages)) {
       messages <- c(messages, r"(<h2>Round 1 Results&#58;</h2>)", values$games$game1$play_event_messages)
-      print(messages)
     }
-    print(messages)
 
     # final output
     paste0(messages, collapse='<br>')
