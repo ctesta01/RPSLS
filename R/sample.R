@@ -25,10 +25,22 @@ sample_rpsls <- function(n = 1, probs = rep(.2, 5), replace = TRUE, quiet = FALS
 #' this function samples two of
 #'
 #' @examples
-sample_rpsls_pair <- function() {
+sample_rpsls_pair <- function(names = NULL) {
+
+  if (! (missing(names) | (is.character(names) & length(names) == 2))) {
+    stop("The names argument must be either missing or a length 2 character vector.")
+  }
+
   sample <- sample_rpsls(2, quiet = TRUE)
 
-  cat(paste0("Player 1 chooses: ", rpsls_names[sample[1]], ' ', sample[1], '\n'))
-  cat(paste0("Player 2 chooses: ", rpsls_names[sample[2]], ' ', sample[2], '\n'))
-  eval_win_conditions(sample[1], sample[2])
+  if (! missing(names)) {
+    cat(paste0(names[1], " chooses: ", rpsls_names[sample[1]], ' ', sample[1], '\n'))
+    cat(paste0(names[2], " chooses: ", rpsls_names[sample[2]], ' ', sample[2], '\n'))
+    return(invisible(eval_win_conditions(sample[1], sample[2], names = names)))
+
+  } else {
+    cat(paste0("Player 1 chooses: ", rpsls_names[sample[1]], ' ', sample[1], '\n'))
+    cat(paste0("Player 2 chooses: ", rpsls_names[sample[2]], ' ', sample[2], '\n'))
+    return(invisible(eval_win_conditions(sample[1], sample[2])))
+  }
 }
