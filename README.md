@@ -49,15 +49,15 @@ explain_the_game()
 sample_rpsls()
 ```
 
-    ## You got Rock 🪨
+    ## You got Paper 📝
 
 ``` r
 sample_rpsls(2)
 ```
 
     ## Your samples:
-    ## Sample 1: Rock 🪨
-    ## Sample 2: Scissors ✂️
+    ## Sample 1: Spock 🖖
+    ## Sample 2: Paper 📝
 
 # Playing a Game
 
@@ -69,16 +69,16 @@ player 2 wins, or they tie.
 sample_rpsls_pair()
 ```
 
-    ## Player 1 chooses: Lizard 🦎
-    ## Player 2 chooses: Paper 📝
-    ## Player 1 wins!
+    ## Player 1 chooses: Scissors ✂️
+    ## Player 2 chooses: Spock 🖖
+    ## Player 2 wins!
 
 ## Tournaments
 
 The app can be run after installing the package, loading it, and calling
-`app()`.
+`RPSLS::app()`.
 
-![Use the builtin app to run tournaments of RPSLS](images/shiny_app.png)
+![Use the builtin app to run tournaments of RPSLS](images/animation.gif)
 
 Watch the explanation video on YouTube:
 
