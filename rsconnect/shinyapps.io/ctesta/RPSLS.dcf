@@ -1,0 +1,14 @@
+name: RPSLS
+title: RPSLS
+username:
+account: ctesta
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7937967
+bundleId: 6668963
+url: https://ctesta.shinyapps.io/RPSLS/
+when: 1671831148.57825
+lastSyncTime: 1671831148.57826
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: README.Rmd

@@ -13,4 +13,6 @@ Depends:
   shiny,
   rhandsontable,
   DiagrammeR,
-  bslib
+  bslib,
+  rmarkdown,
+  devtools
