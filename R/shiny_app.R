@@ -1,3 +1,4 @@
+#' UI for the RPSLS Shiny App
 ui <- function() {
   fluidPage(
     theme = bslib::bs_theme(bootswatch = "darkly"),
@@ -27,14 +28,15 @@ ui <- function() {
                              actionButton('runMatchup', 'Run Round!')
                              ),
                     tabPanel("Game Summary",
-                             grVizOutput('play_diagram'))
+                             br(),
+                             grVizOutput('play_diagram', height = "800px", width = "80%"))
         )
       )
     )
   )
 }
 
-
+#' Server for the RPSLS Shiny App
 server <- function(input, output, session) {
 
   # determine number of rounds needed
@@ -155,10 +157,12 @@ server <- function(input, output, session) {
     values$games[[paste0('game', values$current_game)]]$play_event_messages <- play_event_messages
     values$games[[paste0('game', values$current_game)]]$winners_long <- winners_long
 
+    # store the list of players
+    winners <- winners[sample.int(n = length(winners), size = length(winners))]
+    values$games[[paste0('game', values$current_game+1)]] <- list(players = winners)
+
     # setup next game with players
     if (length(winners) > 1) {
-      # store the list of players
-      values$games[[paste0('game', values$current_game+1)]] <- list(players = winners)
 
       # create their pair structure
       values$games[[paste0('game', values$current_game + 1)]][['pairs']] <-
@@ -221,6 +225,7 @@ server <- function(input, output, session) {
     )
     })
 
+  # create the tournament style brackets
   output$play_diagram <- renderGrViz({
     grViz_instructions <-
       paste0(
@@ -228,18 +233,29 @@ server <- function(input, output, session) {
        graph [rankdir = LR];
       ",
       # this creates labels for all the players
+      # this might look a little complicated, but basically it says:
+      # for each round that's been played, create nodes where the letter
+      # corresponds to the round (e.g., A for round 1, B for round 2, etc.)
+      # and the number is the player ID.
       purrr::map_chr(1:values$current_game, function(game_i) {
 
         paste0(
       purrr::map_chr(values$games[[paste0('game', game_i)]]$players,
                  ~ paste0("node [shape = rectangle, label = '",
-                          player_namer()[.], "'] ", LETTERS[game_i], ., ";")),
+                          stringr::str_replace_all(player_namer()[.], "[^[:alnum:]^[:space:]]", ""), "'] ", LETTERS[game_i], ., ";")),
       collapse = '\n'
       )
 
       }),
 
       # create arrows for all the games
+      #
+      # this might look a little complicated, but basically it says: for each
+      # round starting from round 2 that's been played (where winners have been
+      # determined), create nodes where the letter use the
+      # values$games$gameXX$winners_long data to determine how to write the
+      # arrows; so for example if players 1 and 2 head-off and player 2 wins in
+      # round 1, the two arrows will be written A1 -> B2; A2 -> B2.
       paste0(
         if (values$current_game > 1) {
       purrr::map_chr(1:(values$current_game-1), function(game_i) {
@@ -258,6 +274,7 @@ server <- function(input, output, session) {
 
 }
 
+#' Run the RPSLS Tournament Simulator Shiny App
 app <- function() {
   shiny::shinyApp(ui = ui, server = server)
 }
