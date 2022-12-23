@@ -11,6 +11,10 @@ games!
 devtools::install_github("ctesta01/RPSLS")
 ```
 
+## Try out the app!
+
+The app is live on <https://ctesta.shinyapps.io/RPSLS/> 🌱🌏🎉
+
 ## Explanation
 
 The *Rock, Paper, Scissors, Lizard, Spock* game is a variant of *Rock,
@@ -49,15 +53,15 @@ explain_the_game()
 sample_rpsls()
 ```
 
-    ## You got Spock 🖖
+    ## You got Paper 📝
 
 ``` r
 sample_rpsls(2)
 ```
 
     ## Your samples:
-    ## Sample 1: Rock 🪨
-    ## Sample 2: Scissors ✂️
+    ## Sample 1: Scissors ✂️
+    ## Sample 2: Lizard 🦎
 
 # Playing a Game
 
@@ -69,8 +73,8 @@ player 2 wins, or they tie.
 sample_rpsls_pair()
 ```
 
-    ## Player 1 chooses: Scissors ✂️
-    ## Player 2 chooses: Paper 📝
+    ## Player 1 chooses: Paper 📝
+    ## Player 2 chooses: Rock 🪨
     ## Player 1 wins!
 
 ## Tournaments
@@ -85,7 +89,7 @@ YouTube](images/youtube.png)](https://www.youtube.com/watch?v=fR90EA7FTV8)
 
 ![Use the builtin app to run tournaments of RPSLS](images/animation.gif)
 
-## Citations
+## Links
 
 [^1]: Rock, Paper Scissors.
     <https://en.wikipedia.org/wiki/Rock_paper_scissors>

@@ -12,6 +12,10 @@ A friendly R package for simulating rock-paper-scissors-lizard-spock games!
 devtools::install_github("ctesta01/RPSLS")
 ```
 
+## Try out the app! 
+
+The app is live on <https://ctesta.shinyapps.io/RPSLS/> 🌱🌏🎉
+
 ## Explanation 
 
 The *Rock, Paper, Scissors, Lizard, Spock* game is a variant
@@ -57,7 +61,7 @@ Watch the explanation video on YouTube:
 
 ![Use the builtin app to run tournaments of RPSLS](images/animation.gif)
 
-## Citations
+## Links
 
 [^1]: Rock, Paper Scissors. https://en.wikipedia.org/wiki/Rock_paper_scissors
 [^2]: A resolution diagram of the game *Rock, Paper, Scissors, Lizard, Spock*. https://en.wikipedia.org/wiki/File:Pierre_ciseaux_feuille_l%C3%A9zard_spock_aligned.svg

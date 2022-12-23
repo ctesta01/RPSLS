@@ -7,7 +7,7 @@ ui <- function() {
     sidebarLayout(
       sidebarPanel(
         h2("Explanation"),
-        p(HTML("The <i>Rock, Paper, Scissors, Lizard, Spock</i> game is a variant of <i>Rock, Paper, Scissors</i> game. The game was first invented by Sam Kass and Karen Bryla and later popularized on the Big Bang Theory.  Read more about it <a href='https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock'>here</a>.")),
+        p(HTML("The <i>Rock, Paper, Scissors, Lizard, Spock</i> game is a variant of <i>Rock, Paper, Scissors</i> game. The game was first invented by Sam Kass and Karen Bryla and later popularized on the Big Bang Theory.  Read more about it <a href='https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock'>here</a>. Diagram below from <a href='https://en.wikipedia.org/wiki/Rock_paper_scissors#/media/File:Pierre_ciseaux_feuille_l%C3%A9zard_spock_aligned.svg'>here</a>.")),
         HTML("<center><img width='100%' style='max-width: 400px;' src='https://upload.wikimedia.org/wikipedia/commons/a/ad/Pierre_ciseaux_feuille_l%C3%A9zard_spock_aligned.svg' alt='A resolution diagram of the game Rock, Paper, Scissors, Lizard, Spock.'></center>"),
         p(HTML(paste0(c("<center>", capture.output(explain_the_game()), "</center>"), collapse='<br>'))),
         h3("Settings"),
