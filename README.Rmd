@@ -53,6 +53,10 @@ The app can be run after installing the package, loading it, and calling `app()`
 
 ![Use the builtin app to run tournaments of RPSLS](images/shiny_app.png)
 
+Watch the explanation video on YouTube:
+
+[![Explanation on YouTube](images/youtube.png)](https://www.youtube.com/watch?v=fR90EA7FTV8)
+
 ## Citations
 
 [^1]: Rock, Paper Scissors. https://en.wikipedia.org/wiki/Rock_paper_scissors
