@@ -49,9 +49,9 @@ sample_rpsls_pair()
 
 ## Tournaments
 
-Currently under development! 
+The app can be run after installing the package, loading it, and calling `app()`.
 
-![Hopefully soon you will be able to use this package to run tournaments of RPSLS](images/shiny_app.png)
+![Use the builtin app to run tournaments of RPSLS](images/shiny_app.png)
 
 ## Citations
 
